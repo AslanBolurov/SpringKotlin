@@ -13,20 +13,20 @@ import org.springframework.data.redis.serializer.StringRedisSerializer
 @SpringBootApplication
 class KotlinspringApplication{
 
-	@Bean
-	fun redisOperations(
-		factory: RedisConnectionFactory?
-	):RedisOperations<String, Aircraft>?{
-
-		val serializer=Jackson2JsonRedisSerializer(Aircraft::class.java)
-
-		val template=RedisTemplate<String, Aircraft>()
-		template.setConnectionFactory(factory!!)
-		template.setDefaultSerializer(serializer)
-		template.keySerializer=StringRedisSerializer()
-
-		return template
-	}
+//	@Bean
+//	fun redisOperations(
+//		factory: RedisConnectionFactory?
+//	):RedisOperations<String, Aircraft>?{
+//
+//		val serializer=Jackson2JsonRedisSerializer(Aircraft::class.java)
+//
+//		val template=RedisTemplate<String, Aircraft>()
+//		template.setConnectionFactory(factory!!)
+//		template.setDefaultSerializer(serializer)
+//		template.keySerializer=StringRedisSerializer()
+//
+//		return template
+//	}
 
 
 

@@ -3,8 +3,10 @@ package com.example.kotlinspring.model
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.data.annotation.Id
+import org.springframework.data.redis.core.RedisHash
 import java.time.Instant
 
+@RedisHash
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Aircraft(
     @Id @JsonProperty("id") val id: Long? = 0L,
