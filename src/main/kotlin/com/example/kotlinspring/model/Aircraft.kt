@@ -1,44 +1,46 @@
 package com.example.kotlinspring.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.springframework.data.annotation.Id
-import org.springframework.data.redis.core.RedisHash
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
 import java.time.Instant
 
-@RedisHash
-@JsonIgnoreProperties(ignoreUnknown = true)
+
+@Entity
 data class Aircraft(
-    @Id @JsonProperty("id") val id: Long? = 0L,
-    @JsonProperty("callsign") val callsign: String? = "",
-    @JsonProperty("squawk") val squawk: String? = "",
-    @JsonProperty("reg") val reg: String? = "",
-    @JsonProperty("flightno") val flightno: String? = "",
-    @JsonProperty("route") val route: String? = "",
-    @JsonProperty("type") val type: String? = "",
-    @JsonProperty("category") val category: String? = "",
-    @JsonProperty("altitude") val altitude: Int? = 0,
-    @JsonProperty("heading") val heading: Int? = 0,
-    @JsonProperty("speed") val speed: Int? = 0,
-    @JsonProperty("vert_rate")
-    val vertRate: Int? = 0,
-    @JsonProperty("selected_altitude")
-    val selectedAltitude: Int? = 0,
-    @JsonProperty("lat") val lat: Double? = 0.0,
-    @JsonProperty("lon") val lon: Double? = 0.0,
-    @JsonProperty("barometer") val barometer: Double? = 0.0,
-    @JsonProperty("polar_distance")
-    val polarDistance: Double? = 0.0,
-    @JsonProperty("polar_bearing")
-    val polarBearing: Double? = 0.0,
-    @JsonProperty("is_adsb")
-    val isADSB: Boolean? = false,
-    @JsonProperty("is_on_ground")
-    val isOnGround: Boolean? = false,
-    @JsonProperty("last_seen_time")
-    val lastSeenTime: String? = Instant.ofEpochSecond(0).toString(),
-    @JsonProperty("pos_update_time")
-    val posUpdateTime: String? = Instant.ofEpochSecond(0).toString(),
-    @JsonProperty("bds40_seen_time")
-    val bds40SeenTime: String? = Instant.ofEpochSecond(0).toString()
+    @Id
+    @GeneratedValue
+    val id: Long? = null,
+    val callsign: String? = null,
+    val squawk: String? = null,
+    val reg: String? = null,
+    val flightno: String? = null,
+    val route: String? = null,
+    val type: String? = null,
+    val category: String? = null,
+    val altitude: Int = 0,
+    val heading: Int = 0,
+    val speed: Int = 0,
+    @field:JsonProperty("vert_rate")
+    val vertRate: Int = 0,
+    @field:JsonProperty("selected_altitude")
+    val selectedAltitude: Int = 0,
+    val lat: Double = 0.0,
+    val lon: Double = 0.0,
+    val barometer: Double = 0.0,
+    @field:JsonProperty("polar_distance")
+    val polarDistance: Double = 0.0,
+    @field:JsonProperty("polar_bearing")
+    val polarBearing: Double = 0.0,
+    @field:JsonProperty("is_adsb")
+    val isADSB: Boolean = false,
+    @field:JsonProperty("is_on_ground")
+    val isOnGround: Boolean = false,
+    @field:JsonProperty("last_seen_time")
+    val lastSeenTime: Instant? = null,
+    @field:JsonProperty("pos_update_time")
+    val posUpdateTime: Instant? = null,
+    @field:JsonProperty("bds40_seen_time")
+    val bds40SeenTime: Instant? = null
 )
